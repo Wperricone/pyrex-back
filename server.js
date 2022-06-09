@@ -94,8 +94,7 @@ app.get('/api/v1/patterns', (request, response) => {
 });
 
 app.get('/api/v1/patterns/:id', (request, response) => {
-  const { id } = request.params.id;
-  const pattern = app.locals.patterns.find(pattern => pattern.id === id);
+  const pattern = app.locals.patterns.find(pattern => pattern.id);
   if (!pattern) {
     return response.sendStatus(404);
   }

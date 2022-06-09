@@ -80,7 +80,7 @@ app.locals.patterns = [
   { id: 35, name: 'Verde', tags: ['olives', 'berries', 'leaves', 'branches'], colors: ['green', 'yellow', 'white', 'yellow'], img: 'https://i.ibb.co/HF311qv/th-verde.jpg'},
 
   { id: 36, name: 'Woodland', tags: ['flowers', 'leaves', 'forest'], colors: ['brown', 'white', 'tan'], img: 'https://i.ibb.co/9ZkLJL6/th-woodland.jpg'},
-  
+
 ];
 
 
@@ -96,10 +96,9 @@ app.get('/api/v1/patterns', (request, response) => {
 app.get('/api/v1/patterns/:id', (request, response) => {
   const { id } = request.params;
   const pattern = app.locals.patterns.find(pattern => pattern.id === id);
-  if (!patern) {
+  if (!pattern) {
     return response.sendStatus(404);
   }
-
   response.status(200).json(pattern);
 });
 

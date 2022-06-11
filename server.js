@@ -97,11 +97,11 @@ app.get('/api/v1/patterns', (request, response) => {
   response.json({ patterns });
 });
 
-// app.get('api/v1/favorites', (request, response) => {
-//   const favorites = app.locals.data.favorites
-//   console.log(favorites);
-//   response.json({ favorites })
-// });
+app.get('api/v1/favorites', (request, response) => {
+  const favorites = app.locals.data.favorites
+  console.log(favorites);
+  response.json({ favorites })
+});
 
 app.get('/api/v1/patterns/:id', (request, response) => {
   const {id} = request.params;
@@ -140,8 +140,9 @@ app.post('/api/v1/patterns', (request, response) => {
 
 
 app.delete('/api/v1/favorites', async (req, res) => {
+  console.log("DELETE", req.body);
   const { id } = req.body
-    app.locals.data.favorites = app.locals.favorites.filter(favorite => parseInt(favorite.id) !== parseInt(id))
+    app.locals.data.favorites = app.locals.data.favorites.filter(favorite => parseInt(favorite.id) !== parseInt(id))
       res.status(202).json({ id })
 
 

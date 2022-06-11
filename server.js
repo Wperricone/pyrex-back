@@ -115,28 +115,28 @@ app.get('/api/v1/patterns/:id', (request, response) => {
 
 app.post('/api/v1/patterns', (request, response) => {
 
-  const id = Date.now();
   const pattern = request.body;
-  for (let requiredParameter of ['name', 'tags']) {
+  console.log("PATTERNNN", pattern);
+  for (let requiredParameter of ['id', 'name', 'img' ]) {
     if (!pattern[requiredParameter]) {
       response
         .status(422)
-        .send({ error: `Expected format: { name: <String>, tags:<Array> }. You're missing a "${requiredParameter}" property.`
+        .send({ error: `Expected format: { id: <String>, name: <String>, img:<String> }. You're missing a "${requiredParameter}" property.`
       });
     }
   }
 
-  const { name, tags } = pattern;
-  app.locals.patterns.push({ name, tags, id });
-  response.status(201).json({ name, tags, id });
+  const { id, name, img } = pattern;
+  app.locals.data.favorites.push({ id, name, img });
+  response.status(201).json({ id, name, img });
 });
 
-app.post('/api/v1/patterns', (request, response) => {
-  console.log("requestBody-->", request.body);
-  const {id, name, tags, colors, img} = req.body
-  app.locals.data.favorites.push(request.body);
-  response.status(201).json(request.body);
-})
+// app.post('/api/v1/patterns', (request, response) => {
+//   console.log("requestBody-->", request.body);
+//   const {id, name, img} = request.body
+//   app.locals.data.favorites.push(request.body);
+//   response.status(201).json(request.body);
+// })
 
 
 app.delete('/api/v1/favorites', async (req, res) => {

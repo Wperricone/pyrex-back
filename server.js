@@ -97,11 +97,11 @@ app.get('/api/v1/patterns', (request, response) => {
   response.json({ patterns });
 });
 
-// app.get('api/v1/favorites', (request, response) => {
-//   const favorites = app.locals.data.favorites
-//   console.log(favorites);
-//   response.json({ favorites })
-// });
+app.get('api/v1/favorites', (request, response) => {
+  const favorites = app.locals.data.favorites
+  console.log(favorites);
+  response.json({ favorites })
+});
 
 app.get('/api/v1/patterns/:id', (request, response) => {
   const {id} = request.params;

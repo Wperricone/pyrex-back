@@ -7,8 +7,10 @@
 Vintage Pyrex is a true treasure. There are so many patterns it is difficult to keep track of them! With Pyrex Party a user can see what the patterns look like and if the user likes it they can add it to their favorites list. This API contains 36 patterns and information about them. Some of the information, such as the list of colors available, will be used to expand the site at a later date.
 
 
-### [Pyrex-api Deploy Link](https://github.com/Wperricone/pyrex-back.git)
-### [Pyrex Front-end Deploy Link](https://github.com/Wperricone/pyrex-front.git)
+### [Pyrex-api GitHub Deploy Link](https://github.com/Wperricone/pyrex-back.git)
+### [Pyrex-api Heroku Deploy Link](pyrex-back.herokuapp.com/api/v1/patterns)
+### [Pyrex Front-end GitHub Deploy Link](https://github.com/Wperricone/pyrex-front.git)
+### [Pyrex Front-end Heroku Deploy Link](pyrex-front.herokuapp.com/)
 
 
 ## Views of the Code-
@@ -43,8 +45,9 @@ Using Express to write the API, this is what the code looks like:
 - In your terminal type `$cd pyrex-bak`
 - Type `$npm install`
 - Do not run `$npm audit fix --force`
-- Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
-- The browser should then deploy using a local host
+- Open [http://localhost:3001](http://localhost:3001) to view it in your browser. To view on Heroku, visit pyrex-back.herokuapp.com/api/v1/patterns
+
+- The browser should then deploy using a local host or Heroku
 - Enjoy using Pyrex Party for all your collecting research!
 - NOTE: Make sure that you type `Control + C` in your terminal when you are done using the application. This ensure the server will stop running before your close your Terminal.
 

@@ -5,7 +5,6 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-
 app.set('port', process.env.PORT || 3001);
 app.locals.title = 'Pyrex Back';
 const data = {
@@ -105,7 +104,6 @@ app.get('api/v1/favorites', (request, response) => {
 
 app.get('/api/v1/patterns/:id', (request, response) => {
   const {id} = request.params;
-
   const onlyOne = app.locals.data.patterns.find(pattern => pattern.id === id);
   if (!onlyOne) {
     return response.sendStatus(404);
@@ -114,9 +112,7 @@ app.get('/api/v1/patterns/:id', (request, response) => {
 });
 
 app.post('/api/v1/patterns', (request, response) => {
-
   const pattern = request.body;
-  console.log("PATTERNNN", pattern);
   for (let requiredParameter of ['id', 'name', 'img' ]) {
     if (!pattern[requiredParameter]) {
       response
@@ -131,21 +127,10 @@ app.post('/api/v1/patterns', (request, response) => {
   response.status(201).json({ id, name, img });
 });
 
-// app.post('/api/v1/patterns', (request, response) => {
-//   console.log("requestBody-->", request.body);
-//   const {id, name, img} = request.body
-//   app.locals.data.favorites.push(request.body);
-//   response.status(201).json(request.body);
-// })
-
-
 app.delete('/api/v1/favorites', async (req, res) => {
-  console.log("DELETE", req.body);
   const { id } = req.body
     app.locals.data.favorites = app.locals.data.favorites.filter(favorite => parseInt(favorite.id) !== parseInt(id))
       res.status(202).json({ id })
-
-
 });
 
 app.listen(app.get('port'), () => {

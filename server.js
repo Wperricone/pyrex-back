@@ -87,9 +87,9 @@ favorites: []
 app.locals.data = data
 
 
-app.get('/', (request, response) => {
-  response.send('Pyrex!');
-});
+// app.get('/', (request, response) => {
+//   response.send('Pyrex!');
+// });
 
 app.get('/api/v1/patterns', (request, response) => {
   const patterns = app.locals.data
